@@ -1,0 +1,47 @@
+
+name: ERP SaaS Deployment 
+
+on:
+  workflow_dispatch:
+    inputs:
+      customer_name:
+        description: 'Customer Name'
+        required: true
+      customer_email:
+        description: 'Customer Email'
+        required: true
+      subscription_type:
+        description: 'erp-api, frontend, or full-app'
+        required: true
+        default: 'erp-api'
+     
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      customer_name: ${{ inputs.customer_name }}
+      application_name: ${{ inputs.subscription_type }}
+    secrets: inherit
+
+  send_email:
+    needs: deploy
+    uses: ./.github/workflows/send_email.yml
+    with:
+      customer_name: ${{ inputs.customer_name }}
+      customer_email: ${{ inputs.customer_email }}
+      subscription_type: ${{ inputs.subscription_type }}
+    secrets:
+      VPC_HOST: ${{secrets.VPC_HOST }}
+      VPS_USER:  ${{secrets.VPS_USER }}
+      VPS_PASSWORD:  ${{secrets.VPS_PASSWORD }}
+      EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      
+  cleanup:
+    needs: send_email
+    uses: ./.github/workflows/cleanup.yml
+    with:
+      customer_name: ${{ inputs.customer_name }}
+    secrets: inherit
+   

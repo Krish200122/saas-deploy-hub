@@ -1,0 +1,1444 @@
+Accounting API Documentation
+Save Accounting
+Endpoint: /api/Accounting/saveAccounting
+Method: POST
+Description: Used to save accounting data.
+Request Body: JSON with required fields for accounting
+Response: 200 OK if saved successfully
+Appropriate error message on failure
+
+Get Accounting
+Endpoint: /api/Accounting/getAccounting
+Method: GET
+Description: Retrieves a list of all accounting entries.
+Request Body: None
+Response: 200 OK with list of accounting entries
+204 No Content if no records found
+
+Get Account Type
+Endpoint: /api/Accounting/getAccountType
+Method: GET
+Description: Fetches all available account types.
+Request Body: None
+Response: 200 OK with list of account types
+
+Get Account Parent
+Endpoint: /api/Accounting/getAccountParent
+Method: GET
+Description: Retrieves parent account information for hierarchical structuring.
+Request Body: None
+Response: 200 OK with parent account details
+
+Save Journal Entry
+Endpoint: /api/Accounting/saveJournalEntry
+Method: POST
+Description: Saves a new journal entry.
+Request Body: JSON with journal entry details
+Response: 200 OK if entry saved successfully
+
+Get Journal Entry
+Endpoint: /api/Accounting/getJournalEntry
+Method: GET
+Description: Retrieves existing journal entries.
+Request Body: None
+Response: 200 OK with journal entry records
+
+
+Appointment API 
+Save Appointment
+Endpoint: /api/Appointment/saveAppointment
+Method: POST
+Description: Saves a new appointment.
+Request Body: JSON with appointment details
+Response: 200 OK if appointment saved successfully
+Get Appointment
+Endpoint: /api/Appointment/getAppointment
+Method: GET
+Description: Retrieves appointment details.
+Request Body: None
+Response: 200 OK with appointment record
+Save Event
+Endpoint: /api/Appointment/saveEvent
+Method: POST
+Description: Saves a new event.
+Request Body: JSON with event details
+Response: 200 OK if event saved successfully
+Get Events
+Endpoint: /api/Appointment/getEvents
+Method: GET
+Description: Retrieves all events.
+Request Body: None
+Response: 200 OK with event list
+Get Status Data
+Endpoint: /api/Appointment/getStatusData
+Method: GET
+Description: Retrieves status data for appointments/events.
+Request Body: None
+Response: 200 OK with status data
+BatchAllotmentRegister APIs
+Save BatchAllotmentRegister
+Endpoint: /api/BatchAllotmentRegister/SaveBatchAllotmentRegister
+Method: POST
+Description: Saves batch allotment register data.
+Request Body: JSON with batch allotment details
+Response: 200 OK if saved successfully
+Get BatchAllotmentRegister
+Endpoint: /api/BatchAllotmentRegister/GetBatchAllotmentRegister
+Method: GET
+Description: Retrieves batch allotment register data.
+Request Body: None
+Response: 200 OK with batch allotment records
+Get Batch Statuses
+Endpoint: /api/BatchAllotmentRegister/getBatchStatuses
+Method: GET
+Description: Retrieves available batch status options.
+Request Body: None
+Response: 200 OK with batch status list
+Bonus APIs
+Get All Bonus
+Endpoint: /api/Bonus/GetAllBonus
+Method: GET
+Description: Retrieves all bonus records.
+Request Body: None
+Response: 200 OK with bonus list
+Save Bonus
+Endpoint: /api/Bonus/saveBonus
+Method: POST
+Description: Saves bonus data.
+Request Body: JSON with bonus details
+Response: 200 OK if bonus saved successfully
+Campaign APIs
+Get Email Campaign
+Endpoint: /api/Campaign/getEmailCampaign
+Method: GET
+Description: Retrieves email campaign data.
+Request Body: None
+Response: 200 OK with email campaign records
+Save Email Campaign
+Endpoint: /api/Campaign/saveEmailCampaign
+Method: POST
+Description: Saves email campaign data.
+Request Body: JSON with email campaign details
+Response: 200 OK if email campaign saved successfully
+Get Campaign
+Endpoint: /api/Campaign/getCampaign
+Method: GET
+Description: Retrieves campaign data.
+Request Body: None
+Response: 200 OK with campaign records
+Save Campaign
+Endpoint: /api/Campaign/saveCampaign
+Method: POST
+Description: Saves campaign data.
+Request Body: JSON with campaign details
+Response: 200 OK if campaign saved successfully
+
+Contact APIs
+Save Contact
+Endpoint: /api/Contact/saveContact
+Method: POST
+Description: Saves contact data.
+Request Body: JSON with contact details
+Response: 200 OK if contact saved successfully
+Get Contact
+Endpoint: /api/Contact/getContact
+Method: GET
+Description: Retrieves all contact records.
+Request Body: None
+Response: 200 OK with contact list
+Contract APIs
+Get CRM Party Types
+Endpoint: /api/Contract/getCrmPartyTypes
+Method: GET
+Description: Retrieves CRM party types for contracts.
+Request Body: None
+Response: 200 OK with party types list
+Get CRM Document Types
+Endpoint: /api/Contract/getCrmDocumentTypes
+Method: GET
+Description: Retrieves CRM document types for contracts.
+Request Body: None
+Response: 200 OK with document types list
+Save Contract
+Endpoint: /api/Contract/saveContract
+Method: POST
+Description: Saves contract data.
+Request Body: JSON with contract details
+Response: 200 OK if contract saved successfully
+Get Contracts
+Endpoint: /api/Contract/getContracts
+Method: GET
+Description: Retrieves all contracts.
+Request Body: None
+Response: 200 OK with contracts list
+Save Contract Template
+Endpoint: /api/Contract/saveContractTemplate
+Method: POST
+Description: Saves contract template data.
+Request Body: JSON with contract template details
+Response: 200 OK if template saved successfully
+Get Contracts Template
+Endpoint: /api/Contract/getContractsTemplate
+Method: GET
+Description: Retrieves contract templates.
+Request Body: None
+Response: 200 OK with contract templates list
+Save Signed Contract
+Endpoint: /api/Contract/saveSignedContract
+Method: POST
+Description: Saves signed contract data.
+Request Body: JSON with signed contract details
+Response: 200 OK if signed contract saved successfully
+Get Contract Document
+Endpoint: /api/Contract/getContractDocument
+Method: GET
+Description: Retrieves contract document.
+Request Body: None
+Response: 200 OK with contract document
+Customer APIs
+Get Customer
+Endpoint: /api/Customer/getCustomer
+Method: GET
+Description: Retrieves customer data.
+Request Body: None
+Response: 200 OK with customer records
+Save Customer
+Endpoint: /api/Customer/saveCustomer
+Method: POST
+Description: Saves customer data.
+Request Body: JSON with customer details
+Response: 200 OK if customer saved successfully
+Save Customer Group
+Endpoint: /api/Customer/saveCustomerGroup
+Method: POST
+Description: Saves customer group data.
+Request Body: JSON with customer group details
+Response: 200 OK if customer group saved successfully
+Get Customer Details
+Endpoint: /api/Customer/getCustomerDetails
+Method: GET
+Description: Retrieves detailed customer information.
+Request Body: None
+Response: 200 OK with customer details
+Get Customer Details Groups
+Endpoint: /api/Customer/getCustomerDetailsGroups
+Method: GET
+Description: Retrieves customer details groups.
+Request Body: None
+Response: 200 OK with customer details groups
+Get Customer Details Group Parent
+Endpoint: /api/Customer/getCustomerDetailsGroupParent
+Method: GET
+Description: Retrieves customer details group parent information.
+Request Body: None
+Response: 200 OK with parent group details
+Save Region
+Endpoint: /api/Customer/saveRegion
+Method: POST
+Description: Saves region data.
+Request Body: JSON with region details
+Response: 200 OK if region saved successfully
+Get Regions
+Endpoint: /api/Customer/getRegions
+Method: GET
+Description: Retrieves all regions.
+Request Body: None
+Response: 200 OK with regions list
+Get Customer By Lead Id
+Endpoint: /api/Customer/getCustomerByLeadId
+Method: GET
+Description: Retrieves customer by lead ID.
+Request Body: None
+Response: 200 OK with customer data
+Get Customer By Op Id
+Endpoint: /api/Customer/getCustomerByOpId
+Method: GET
+Description: Retrieves customer by opportunity ID.
+Request Body: None
+Response: 200 OK with customer data
+CustomerDeliveryNote APIs
+Save Customer Delivery Note
+Endpoint: /api/CustomerDeliveryNote/SaveCustomerDeliveryNote
+Method: POST
+Description: Saves customer delivery note data.
+Request Body: JSON with delivery note details
+Response: 200 OK if delivery note saved successfully
+Get Customer Delivery Notes
+Endpoint: /api/CustomerDeliveryNote/GetCustomerDeliveryNotes
+Method: GET
+Description: Retrieves customer delivery notes.
+Request Body: None
+Response: 200 OK with delivery notes list
+Get Customer Delivery Note Details
+Endpoint: /api/CustomerDeliveryNote/GetCustomerDeliveryNoteDetails
+Method: GET
+Description: Retrieves customer delivery note details.
+Request Body: None
+Response: 200 OK with delivery note details
+Get Delivery Note Products
+Endpoint: /api/CustomerDeliveryNote/GetDeliveryNoteProducts
+Method: GET
+Description: Retrieves products in delivery notes.
+Request Body: None
+Response: 200 OK with delivery note products
+Deduction APIs
+Get All Deductions
+Endpoint: /api/Deduction/getAllDeductions
+Method: GET
+Description: Retrieves all deduction records.
+Request Body: None
+Response: 200 OK with deductions list
+Save Deductions
+Endpoint: /api/Deduction/saveDeductions
+Method: POST
+Description: Saves deduction data.
+Request Body: JSON with deduction details
+Response: 200 OK if deductions saved successfully
+DeliveryNote APIs
+Get Products By PO
+Endpoint: /api/DeliveryNote/GetProductsByPO
+Method: GET
+Description: Retrieves products by purchase order.
+Request Body: None
+Response: 200 OK with products list
+Get Delivery Note Details
+Endpoint: /api/DeliveryNote/GetDeliveryNoteDetails
+Method: GET
+Description: Retrieves delivery note details.
+Request Body: None
+Response: 200 OK with delivery note details
+Get All Delivery Notes
+Endpoint: /api/DeliveryNote/GetAllDeliveryNotes
+Method: GET
+Description: Retrieves all delivery notes.
+Request Body: None
+Response: 200 OK with delivery notes list
+Save Delivery Note
+Endpoint: /api/DeliveryNote/saveDeliveryNote
+Method: POST
+Description: Saves delivery note data.
+Request Body: JSON with delivery note details
+Response: 200 OK if delivery note saved successfully
+Department APIs
+Get Department
+Endpoint: /api/Department/getDepartment
+Method: GET
+Description: Retrieves department information.
+Request Body: None
+Response: 200 OK with department data
+Save Department
+Endpoint: /api/Department/saveDepartment
+Method: POST
+Description: Saves department data.
+Request Body: JSON with department details
+Response: 200 OK if department saved successfully
+Email APIs
+Get Email Templates
+Endpoint: /api/Email/getEmailTemplates
+Method: GET
+Description: Retrieves email templates.
+Request Body: None
+Response: 200 OK with email templates list
+Save Email Template
+Endpoint: /api/Email/saveEmailTemplate
+Method: POST
+Description: Saves email template data.
+Request Body: JSON with email template details
+Response: 200 OK if email template saved successfully
+Employee APIs
+Save Employee
+Endpoint: /api/Employee/saveEmployee
+Method: POST
+Description: Saves employee data.
+Request Body: JSON with employee details
+Response: 200 OK if employee saved successfully
+Get Employee
+Endpoint: /api/Employee/getEmployee
+Method: GET
+Description: Retrieves employee information.
+Request Body: None
+Response: 200 OK with employee data
+Get Employee By Id
+Endpoint: /api/Employee/getEmployeeById
+Method: GET
+Description: Retrieves employee by ID.
+Request Body: None
+Response: 200 OK with employee data
+Get Employee Name
+Endpoint: /api/Employee/getEmployeeName
+Method: GET
+Description: Retrieves employee name.
+Request Body: None
+Response: 200 OK with employee name
+Get Emp By Id
+Endpoint: /api/Employee/getEmpById
+Method: GET
+Description: Retrieves employee by ID.
+Request Body: None
+Response: 200 OK with employee data
+Expenses APIs
+Save Expenses
+Endpoint: /api/Expenses/saveExpenses
+Method: POST
+Description: Saves expense data.
+Request Body: JSON with expense details
+Response: 200 OK if expenses saved successfully
+Get Expenses
+Endpoint: /api/Expenses/getExpenses
+Method: GET
+Description: Retrieves expense records.
+Request Body: None
+Response: 200 OK with expenses list
+Save Expense Types
+Endpoint: /api/Expenses/saveExpenseTypes
+Method: POST
+Description: Saves expense type data.
+Request Body: JSON with expense type details
+Response: 200 OK if expense types saved successfully
+Get Expense Types
+Endpoint: /api/Expenses/getExpenseTypes
+Method: GET
+Description: Retrieves expense types.
+Request Body: None
+Response: 200 OK with expense types list
+Upload Expense
+Endpoint: /api/Expenses/uploadExpense
+Method: POST
+Description: Uploads expense data.
+Request Body: JSON with expense upload details
+Response: 200 OK if expense uploaded successfully
+FinishedProductQuality APIs
+Save Finished Product Quality Params
+Endpoint: /api/FinishedProductQuality/saveFinishedProductQualityParams
+Method: POST
+Description: Saves finished product quality parameters.
+Request Body: JSON with quality parameters
+Response: 200 OK if parameters saved successfully
+Get FP Quality Parameters
+Endpoint: /api/FinishedProductQuality/GetFPQualityParameters
+Method: GET
+Description: Retrieves finished product quality parameters.
+Request Body: None
+Response: 200 OK with quality parameters
+Get FP Quality Details
+Endpoint: /api/FinishedProductQuality/GetFPQualityDetails
+Method: GET
+Description: Retrieves finished product quality details.
+Request Body: None
+Response: 200 OK with quality details
+Get FP Quality Checks
+Endpoint: /api/FinishedProductQuality/GetFPQualityChecks
+Method: GET
+Description: Retrieves finished product quality checks.
+Request Body: None
+Response: 200 OK with quality checks
+Save FP Quality Check Request
+Endpoint: /api/FinishedProductQuality/SaveFPQualityCheckRequest
+Method: POST
+Description: Saves finished product quality check request.
+Request Body: JSON with quality check request details
+Response: 200 OK if request saved successfully
+FiscalYear APIs
+Save
+Endpoint: /api/FiscalYear/save
+Method: POST
+Description: Saves fiscal year data.
+Request Body: JSON with fiscal year details
+Response: 200 OK if fiscal year saved successfully
+Get Fiscal Year
+Endpoint: /api/FiscalYear/getFiscalYear
+Method: GET
+Description: Retrieves fiscal year information.
+Request Body: None
+Response: 200 OK with fiscal year data
+Get Months
+Endpoint: /api/FiscalYear/getMonths
+Method: GET
+Description: Retrieves months data.
+Request Body: None
+Response: 200 OK with months list
+GoodsReceivedNote APIs
+Save Goods Received Note
+Endpoint: /api/GoodsReceivedNote/saveGoodsReceivedNote
+Method: POST
+Description: Saves goods received note data.
+Request Body: JSON with goods received note details
+Response: 200 OK if note saved successfully
+Get Goods Received Notes
+Endpoint: /api/GoodsReceivedNote/GetGoodsReceivedNotes
+Method: GET
+Description: Retrieves goods received notes.
+Request Body: None
+Response: 200 OK with goods received notes list
+Get Goods Received Note Details
+Endpoint: /api/GoodsReceivedNote/GetGoodsReceivedNoteDetails
+Method: GET
+Description: Retrieves goods received note details.
+Request Body: None
+Response: 200 OK with note details
+GoogleCalendar APIs
+Authorize Admin
+Endpoint: /api/GoogleCalendar/authorize-admin
+Method: GET
+Description: Authorizes admin for Google Calendar access.
+Request Body: None
+Response: 200 OK with authorization details
+Create Event
+Endpoint: /api/GoogleCalendar/create-event
+Method: POST
+Description: Creates a new event in Google Calendar.
+Request Body: JSON with event details
+Response: 200 OK if event created successfully
+Check Event Status
+Endpoint: /api/GoogleCalendar/check-event-status/{eventId}
+Method: GET
+Description: Checks the status of a specific event.
+Request Body: None
+Response: 200 OK with event status
+List Events
+Endpoint: /api/GoogleCalendar/list-events
+Method: GET
+Description: Lists all events from Google Calendar.
+Request Body: None
+Response: 200 OK with events list
+Delete Event
+Endpoint: /api/GoogleCalendar/delete-event/{eventId}
+Method: DELETE
+Description: Deletes a specific event from Google Calendar.
+Request Body: None
+Response: 200 OK if event deleted successfully
+InhouseProductIngredients APIs
+Save Inhouse Product Ingredient
+Endpoint: /api/InhouseProductIngredients/saveInhouseProductIngredient
+Method: POST
+Description: Saves inhouse product ingredient data.
+Request Body: JSON with ingredient details
+Response: 200 OK if ingredient saved successfully
+Get Inhouse Product Ingredient
+Endpoint: /api/InhouseProductIngredients/getInhouseProductIngredient
+Method: GET
+Description: Retrieves inhouse product ingredient information.
+Request Body: None
+Response: 200 OK with ingredient data
+Invoice APIs
+Details
+Endpoint: /api/invoice/details/{id}
+Method: GET
+Description: Retrieves invoice details by ID.
+Request Body: None
+Response: 200 OK with invoice details
+Header
+Endpoint: /api/invoice/header/{id}
+Method: GET
+Description: Retrieves invoice header by ID.
+Request Body: None
+Response: 200 OK with invoice header
+Get Invoices
+Endpoint: /api/invoice/GetInvoices
+Method: GET
+Description: Retrieves all invoices.
+Request Body: None
+Response: 200 OK with invoices list
+Save Invoice Detail
+Endpoint: /api/invoice/save-invoice-detail
+Method: POST
+Description: Saves invoice detail data.
+Request Body: JSON with invoice detail information
+Response: 200 OK if invoice detail saved successfully
+KitProduct APIs
+Get Kit Products
+Endpoint: /api/KitProduct/getKitProducts
+Method: GET
+Description: Retrieves kit products.
+Request Body: None
+Response: 200 OK with kit products list
+Get Kit Raw Material
+Endpoint: /api/KitProduct/getKitRawMaterial
+Method: GET
+Description: Retrieves kit raw material information.
+Request Body: None
+Response: 200 OK with kit raw material data
+Save Kit
+Endpoint: /api/KitProduct/savekit
+Method: POST
+Description: Saves kit product data.
+Request Body: JSON with kit details
+Response: 200 OK if kit saved successfully
+Lead APIs
+Lead Lookups
+Endpoint: /api/Lead/lookups
+Method: GET
+Description: Retrieves lookup data for lead management.
+Request Body: None
+Response: 200 OK with lookup data
+Save Lead
+Endpoint: /api/Lead/saveLead
+Method: POST
+Description: Saves a new lead record.
+Request Body: JSON with lead details
+Response: 200 OK if lead saved successfully
+Get Lead Details
+Endpoint: /api/Lead/getLeadDetails
+Method: GET
+Description: Retrieves detailed information for a specific lead.
+Request Body: None
+Response: 200 OK with lead details
+Get Lead By Lead Number
+Endpoint: /api/Lead/getLeadByLeadNo
+Method: GET
+Description: Fetches lead information using lead number.
+Request Body: None
+Response: 200 OK with lead information
+Delete Lead
+Endpoint: /api/Lead/{id}
+Method: DELETE
+Description: Deletes a lead record by ID.
+Request Body: None
+Response: 200 OK if deleted successfully
+Get Lead Status Name
+Endpoint: /api/Lead/getLeadStatusName
+Method: GET
+Description: Retrieves available lead status names.
+Request Body: None
+Response: 200 OK with lead status names
+Get Lead Source Name
+Endpoint: /api/Lead/getLeadSourceName
+Method: GET
+Description: Fetches available lead source names.
+Request Body: None
+Response: 200 OK with lead source names
+Get Lead Source Percentage
+Endpoint: /api/Lead/getLeadSourcePercentage
+Method: GET
+Description: Retrieves lead source percentage data.
+Request Body: None
+Response: 200 OK with lead source percentage information
+Leave APIs
+Get All Leave
+Endpoint: /api/Leave/getAllLeave
+Method: GET
+Description: Retrieves all leave records.
+Request Body: None
+Response: 200 OK with all leave records
+Save Leave
+Endpoint: /api/Leave/saveLeave
+Method: POST
+Description: Saves a new leave record.
+Request Body: JSON with leave details
+Response: 200 OK if leave saved successfully
+Save Leave Request
+Endpoint: /api/Leave/saveLeaveRequest
+Method: POST
+Description: Saves a new leave request.
+Request Body: JSON with leave request details
+Response: 200 OK if leave request saved successfully
+Update Leave Request
+Endpoint: /api/Leave/UpdateLeaveRequest
+Method: POST
+Description: Updates an existing leave request.
+Request Body: JSON with updated leave request details
+Response: 200 OK if leave request updated successfully
+Get Holidays
+Endpoint: /api/Leave/getHolidays
+Method: GET
+Description: Retrieves holiday information.
+Request Body: None
+Response: 200 OK with holiday data
+Save Holiday
+Endpoint: /api/Leave/saveHoliday
+Method: POST
+Description: Saves a new holiday record.
+Request Body: JSON with holiday details
+Response: 200 OK if holiday saved successfully
+Get Employee Leave Request
+Endpoint: /api/Leave/getEmpLeaveRequest
+Method: GET
+Description: Retrieves leave requests for employees.
+Request Body: None
+Response: 200 OK with employee leave request data
+Get All Leave Request
+Endpoint: /api/Leave/getAllLeaveRequest
+Method: GET
+Description: Retrieves all leave request records.
+Request Body: None
+Response: 200 OK with all leave request data
+Upload Holiday
+Endpoint: /api/Leave/uploadHoliday
+Method: POST
+Description: Uploads holiday data.
+Request Body: JSON with holiday upload details
+Response: 200 OK if holiday data uploaded successfully
+MaterialOrderNote APIs
+Save Material Order Note Details
+Endpoint: /api/MaterialOrderNote/saveMaterialOrderNoteDetails
+Method: POST
+Description: Saves material order note details.
+Request Body: JSON with material order note details
+Response: 200 OK if saved successfully
+Save Material Issue Note
+Endpoint: /api/MaterialOrderNote/saveMaterialIssueNote
+Method: POST
+Description: Saves a material issue note.
+Request Body: JSON with material issue note details
+Response: 200 OK if saved successfully
+Get Material Ordered Note
+Endpoint: /api/MaterialOrderNote/getMaterialOrderedNote
+Method: GET
+Description: Retrieves material ordered note information.
+Request Body: None
+Response: 200 OK with material ordered note data
+Get Material Issue Note Details
+Endpoint: /api/MaterialOrderNote/getMaterialIssueNoteDetails
+Method: GET
+Description: Retrieves material issue note details.
+Request Body: None
+Response: 200 OK with material issue note details
+Opportunity APIs
+Get All Opportunities
+Endpoint: /api/Opportunity/all
+Method: GET
+Description: Retrieves all opportunity records.
+Request Body: None
+Response: 200 OK with all opportunity data
+Get Opportunity by ID
+Endpoint: /api/Opportunity/{id}
+Method: GET
+Description: Retrieves a specific opportunity by ID.
+Request Body: None
+Response: 200 OK with opportunity details
+Save Opportunity
+Endpoint: /api/Opportunity/saveOpportunity
+Method: POST
+Description: Saves a new opportunity record.
+Request Body: JSON with opportunity details
+Response: 200 OK if opportunity saved successfully
+Get Opportunity Items
+Endpoint: /api/Opportunity/GetOpportunityItems
+Method: GET
+Description: Retrieves opportunity items.
+Request Body: None
+Response: 200 OK with opportunity items data
+Get Opportunity By Opportunity Number
+Endpoint: /api/Opportunity/getOpportunityByOpportunityNo
+Method: GET
+Description: Fetches opportunity information using opportunity number.
+Request Body: None
+Response: 200 OK with opportunity information
+Update Opportunity Status
+Endpoint: /api/Opportunity/updateStatus
+Method: POST
+Description: Updates the status of an opportunity.
+Request Body: JSON with status update details
+Response: 200 OK if status updated successfully
+Get Opportunity By Prospect ID
+Endpoint: /api/Opportunity/getOpportunityByProspectId
+Method: GET
+Description: Retrieves opportunities associated with a specific prospect ID.
+Request Body: None
+Response: 200 OK with opportunity data for the prospect
+OverTime APIs
+Get Overtime Request
+Endpoint: /api/OverTime/getOverTimeRequest
+Method: GET
+Description: Retrieves overtime request information.
+Request Body: None
+Response: 200 OK with overtime request data
+Get Employee Overtime Request
+Endpoint: /api/OverTime/getEmployeeOverTimeRequest
+Method: GET
+Description: Retrieves overtime requests for employees.
+Request Body: None
+Response: 200 OK with employee overtime request data
+Update Overtime Request
+Endpoint: /api/OverTime/UpdateOverTimeRequest
+Method: POST
+Description: Updates an existing overtime request.
+Request Body: JSON with updated overtime request details
+Response: 200 OK if overtime request updated successfully
+Save Overtime Request
+Endpoint: /api/OverTime/saveOverTimeRequest
+Method: POST
+Description: Saves a new overtime request.
+Request Body: JSON with overtime request details
+Response: 200 OK if overtime request saved successfully
+Product APIs
+Save Inhouse Product
+Endpoint: /api/Product/saveInhouseProduct
+Method: POST
+Description: Saves a new inhouse product.
+Request Body: JSON with inhouse product details
+Response: 200 OK if product saved successfully
+Get Inhouse Product
+Endpoint: /api/Product/getInhouseProduct
+Method: GET
+Description: Retrieves inhouse product information.
+Request Body: None
+Response: 200 OK with inhouse product data
+Get Inhouse Product By Name
+Endpoint: /api/Product/getInhouseProductByName
+Method: GET
+Description: Fetches inhouse product by name.
+Request Body: None
+Response: 200 OK with product information
+Get Inhouse Product By Code
+Endpoint: /api/Product/getInhouseProductByCode
+Method: GET
+Description: Retrieves inhouse product using product code.
+Request Body: None
+Response: 200 OK with product details
+Delete Product
+Endpoint: /api/Product/delete/{id}
+Method: DELETE
+Description: Deletes a product by ID.
+Request Body: None
+Response: 200 OK if deleted successfully
+Get Products
+Endpoint: /api/Product/getProducts
+Method: GET
+Description: Retrieves all products.
+Request Body: None
+Response: 200 OK with products list
+Save Products
+Endpoint: /api/Product/saveProducts
+Method: POST
+Description: Saves product information.
+Request Body: JSON with product details
+Response: 200 OK if products saved successfully
+Get Product By Name
+Endpoint: /api/Product/getProductByName
+Method: GET
+Description: Fetches product by name.
+Request Body: None
+Response: 200 OK with product information
+Get Product By Code
+Endpoint: /api/Product/getProductByCode
+Method: GET
+Description: Retrieves product using product code.
+Request Body: None
+Response: 200 OK with product details
+Delete Raw Products
+Endpoint: /api/Product/deleteRawProducts
+Method: DELETE
+Description: Deletes raw products.
+Request Body: None
+Response: 200 OK if deleted successfully
+Get Product Groups
+Endpoint: /api/Product/getProductGroups
+Method: GET
+Description: Retrieves product group information.
+Request Body: None
+Response: 200 OK with product groups data
+Upload Product
+Endpoint: /api/Product/uploadProduct
+Method: POST
+Description: Uploads product data.
+Request Body: JSON with product upload details
+Response: 200 OK if product uploaded successfully
+Upload Raw Material
+Endpoint: /api/Product/uploadRawMaterial
+Method: POST
+Description: Uploads raw material data.
+Request Body: JSON with raw material details
+Response: 200 OK if raw material uploaded successfully
+Get Product Units
+Endpoint: /api/Product/getProductUnits
+Method: GET
+Description: Retrieves product units information.
+Request Body: None
+Response: 200 OK with product units data
+Save Product Groups
+Endpoint: /api/Product/saveProductGroups
+Method: POST
+Description: Saves product group information.
+Request Body: JSON with product group details
+Response: 200 OK if product groups saved successfully
+Get Group Details
+Endpoint: /api/Product/GetGroupDetails
+Method: GET
+Description: Retrieves group details.
+Request Body: None
+Response: 200 OK with group details
+Get Group Parent
+Endpoint: /api/Product/GetGroupParent
+Method: GET
+Description: Retrieves parent group information.
+Request Body: None
+Response: 200 OK with parent group data
+Save Inhouse Product Groups
+Endpoint: /api/Product/saveInhouseProductGroups
+Method: POST
+Description: Saves inhouse product group information.
+Request Body: JSON with inhouse product group details
+Response: 200 OK if inhouse product groups saved successfully
+Get Inhouse Product Group Details
+Endpoint: /api/Product/getInhouseProductGroupDetails
+Method: GET
+Description: Retrieves inhouse product group details.
+Request Body: None
+Response: 200 OK with inhouse product group details
+Get Inhouse Product Group Parent
+Endpoint: /api/Product/getInhouseProductGroupParent
+Method: GET
+Description: Retrieves inhouse product group parent information.
+Request Body: None
+Response: 200 OK with inhouse product group parent data
+ProductStage APIs
+Get Product Stages
+Endpoint: /api/ProductStage/ProductSatges
+Method: GET
+Description: Retrieves product stage information.
+Request Body: None
+Response: 200 OK with product stages data
+Save Product Stages
+Endpoint: /api/ProductStage/saveProductStages
+Method: POST
+Description: Saves product stage information.
+Request Body: JSON with product stage details
+Response: 200 OK if product stages saved successfully
+Prospect APIs
+Save Prospect
+Endpoint: /api/Prospect/saveProspect
+Method: POST
+Description: Saves a new prospect record.
+Request Body: JSON with prospect details
+Response: 200 OK if prospect saved successfully
+Get Prospect
+Endpoint: /api/Prospect/getProspect
+Method: GET
+Description: Retrieves prospect information.
+Request Body: None
+Response: 200 OK with prospect data
+Delete Lead
+Endpoint: /api/Prospect/deleteLead
+Method: DELETE
+Description: Deletes a lead from prospect.
+Request Body: None
+Response: 200 OK if lead deleted successfully
+Delete Opportunity
+Endpoint: /api/Prospect/deleteOpportunity
+Method: DELETE
+Description: Deletes an opportunity from prospect.
+Request Body: None
+Response: 200 OK if opportunity deleted successfully
+PurchaseOrder APIs
+Save Purchase Order
+Endpoint: /api/PurchaseOrder/savePurchaseOrder
+Method: POST
+Description: Saves a new purchase order.
+Request Body: JSON with purchase order details
+Response: 200 OK if purchase order saved successfully
+Get Purchase Order Details
+Endpoint: /api/PurchaseOrder/GetPurchaseOrderDetails
+Method: GET
+Description: Retrieves purchase order details.
+Request Body: None
+Response: 200 OK with purchase order details
+Get Purchase Order Requests
+Endpoint: /api/PurchaseOrder/GetPurchaseOrderRequests
+Method: GET
+Description: Retrieves purchase order requests.
+Request Body: None
+Response: 200 OK with purchase order requests data
+Save Purchase Order Request
+Endpoint: /api/PurchaseOrder/SavePurchaseOrderRequest
+Method: POST
+Description: Saves a purchase order request.
+Request Body: JSON with purchase order request details
+Response: 200 OK if purchase order request saved successfully
+Get Purchase Return
+Endpoint: /api/PurchaseOrder/getPurchaseReturn
+Method: GET
+Description: Retrieves purchase return information.
+Request Body: None
+Response: 200 OK with purchase return data
+Save Purchase Return
+Endpoint: /api/PurchaseOrder/savePurchaseReturn
+Method: POST
+Description: Saves purchase return information.
+Request Body: JSON with purchase return details
+Response: 200 OK if purchase return saved successfully
+PurchaseOrderQuality APIs
+Save Purchase Order Quality Plan
+Endpoint: /api/PurchaseOrderQuality/savePurchaseOrderQualityPlan
+Method: POST
+Description: Saves purchase order quality plan information.
+Request Body: JSON with purchase order quality plan details
+Response: 200 OK if quality plan saved successfully
+Get Purchase Order Quality Plan
+Endpoint: /api/PurchaseOrderQuality/getPurchaseOrderQualityPlan
+Method: GET
+Description: Retrieves purchase order quality plan information.
+Request Body: None
+Response: 200 OK with quality plan data
+Save Purchase Quality Plan Details
+Endpoint: /api/PurchaseOrderQuality/savePurchaseQualityPlanDetails
+Method: POST
+Description: Saves purchase quality plan details.
+Request Body: JSON with purchase quality plan details
+Response: 200 OK if quality plan details saved successfully
+Get Purchase Quality Plan Details
+Endpoint: /api/PurchaseOrderQuality/getPurchaseQualityPlanDetails
+Method: GET
+Description: Retrieves purchase quality plan details.
+Request Body: None
+Response: 200 OK with quality plan details
+Get PO Quality Parameter
+Endpoint: /api/PurchaseOrderQuality/getpoQualityParameter
+Method: GET
+Description: Retrieves purchase order quality parameters.
+Request Body: None
+Response: 200 OK with quality parameters data
+Save PO Quality Parameter
+Endpoint: /api/PurchaseOrderQuality/savepoQualityParameter
+Method: POST
+Description: Saves purchase order quality parameters.
+Request Body: JSON with quality parameter details
+Response: 200 OK if quality parameters saved successfully
+Get Raw Material Quality Statuses
+Endpoint: /api/PurchaseOrderQuality/getRawMaterialQualityStatuses
+Method: GET
+Description: Retrieves raw material quality status information.
+Request Body: None
+Response: 200 OK with raw material quality statuses
+Get Purchase Order Quality Plan By Order
+Endpoint: /api/PurchaseOrderQuality/getPurchaseOrderQualityPlanByOrder
+Method: GET
+Description: Retrieves purchase order quality plan by order.
+Request Body: None
+Response: 200 OK with quality plan for specific order
+Get Purchase Order Quality Received Note
+Endpoint: /api/PurchaseOrderQuality/getPurchaseOrderQualityReceivedNote
+Method: GET
+Description: Retrieves purchase order quality received note.
+Request Body: None
+Response: 200 OK with quality received note data
+Quotation APIs
+Save Quotation
+Endpoint: /api/Quotation/saveQuotation
+Method: POST
+Description: Saves a new quotation.
+Request Body: JSON with quotation details
+Response: 200 OK if quotation saved successfully
+Get Quotation
+Endpoint: /api/Quotation/getQuotation
+Method: GET
+Description: Retrieves quotation information.
+Request Body: None
+Response: 200 OK with quotation data
+Get Opportunity From
+Endpoint: /api/Quotation/getOpportunityFrom
+Method: GET
+Description: Retrieves opportunity information for quotation.
+Request Body: None
+Response: 200 OK with opportunity data
+Get Order Types
+Endpoint: /api/Quotation/getOrderTypes
+Method: GET
+Description: Retrieves available order types.
+Request Body: None
+Response: 200 OK with order types data
+Get Quotation Status
+Endpoint: /api/Quotation/getQuotationStatus
+Method: GET
+Description: Retrieves quotation status information.
+Request Body: None
+Response: 200 OK with quotation status data
+Get Additional Discount
+Endpoint: /api/Quotation/getAdditionalDiscount
+Method: GET
+Description: Retrieves additional discount information.
+Request Body: None
+Response: 200 OK with additional discount data
+Role
+Get Role
+Endpoint: /api/Role/getRole
+Method: GET
+Description: Retrieves all roles.
+Request Body: None
+Response: 200 OK with list of roles
+Get Role Access
+Endpoint: /api/Role/roleAccess
+Method: GET
+Description: Gets the access rights of roles.
+Request Body: None
+Response: 200 OK with role access data
+Get Modules
+Endpoint: /api/Role/modules
+Method: GET
+Description: Fetches a list of modules.
+Request Body: None
+Response: 200 OK with module list
+Get Privileges by Role ID
+Endpoint: /api/Role/privileges/{roleId}
+Method: GET
+Description: Retrieves privileges assigned to a specific role based on role ID.
+Request Body: None
+Response: 200 OK with privileges list
+Save Privileges
+Endpoint: /api/Role/privileges
+Method: POST
+Description: Saves or updates role privileges.
+Request Body: JSON with privilege details
+Response: 200 OK if privileges saved successfully
+Save Role
+Endpoint: /api/Role/saveRole
+Method: POST
+Description: Adds or updates a role.
+Request Body: JSON with role details
+Response: 200 OK if role saved successfully
+Save Module
+Endpoint: /api/Role/saveModule
+Method: POST
+Description: Saves a new module.
+Request Body: JSON with module details
+Response: 200 OK if module saved successfully
+Salesperson
+Save Salesperson
+Endpoint: /api/salesperson/saveSalesperson
+Method: POST
+Description: Saves a new salesperson record.
+Request Body: JSON with salesperson details
+Response: 200 OK if saved successfully
+Get Salesperson
+Endpoint: /api/salesperson/getSalesperson
+Method: GET
+Description: Retrieves a list of all salespersons.
+Request Body: None
+Response: 200 OK with list of salespersons
+Get Salesperson by ID
+Endpoint: /api/salesperson/getSalespersonById
+Method: GET
+Description: Retrieves details of a salesperson using their ID.
+Request Body: None
+Response: 200 OK with salesperson details
+Get Sale Parent
+Endpoint: /api/salesperson/getSaleparent
+Method: GET
+Description: Retrieves parent salesperson information.
+Request Body: None
+Response: 200 OK with parent salesperson details
+Sales Dashboard
+Get Recent Orders
+Endpoint: /api/salesDashboard/getSalesRecentOrders
+Method: GET
+Description: Retrieves recent sales orders.
+Request Body: None
+Response: 200 OK with recent order list
+Get Sales by Week or Month
+Endpoint: /api/salesDashboard/GetSalesByWeekOrMonth
+Method: GET
+Description: Retrieves sales data grouped by week or month.
+Request Body: None
+Response: 200 OK with weekly/monthly sales data
+Get Sales Data by Date
+Endpoint: /api/salesDashboard/getSalesDataByDate
+Method: GET
+Description: Retrieves sales data filtered by a specific date range.
+Request Body: None
+Response: 200 OK with date-filtered sales data
+Get Sales by Month
+Endpoint: /api/salesDashboard/getSalesByMonth
+Method: GET
+Description: Gets sales information aggregated by month.
+Request Body: None
+Response: 200 OK with monthly sales data
+Get Top Selling Products
+Endpoint: /api/salesDashboard/getTopSellingProducts
+Method: GET
+Description: Retrieves a list of top-selling products.
+Request Body: None
+Response: 200 OK with top-selling products
+Get Sales Summary
+Endpoint: /api/salesDashboard/getSalesSummary
+Method: GET
+Description: Provides a summarized view of sales data.
+Request Body: None
+Response: 200 OK with sales summary
+SalesDistribution
+Save Inhouse Product
+Endpoint: /api/SalesDistribution/saveInhouseProduct
+Method: POST
+Description: Saves an inhouse product record.
+Request Body: JSON with inhouse product details
+Response: 200 OK if saved successfully
+Get Distribution
+Endpoint: /api/SalesDistribution/getdistribution
+Method: GET
+Description: Retrieves distribution data.
+Request Body: None
+Response: 200 OK with distribution data
+Get Distribution Detail
+Endpoint: /api/SalesDistribution/getdistributionDetail
+Method: GET
+Description: Retrieves detailed distribution information.
+Request Body: None
+Response: 200 OK with detailed distribution data
+SalesOrder
+Save Sales Order
+Endpoint: /api/SalesOrder/saveSalesOrder
+Method: POST
+Description: Saves a new sales order.
+Request Body: JSON with sales order details
+Response: 200 OK if saved successfully
+Get Sales Order
+Endpoint: /api/SalesOrder/getSalesOrder
+Method: GET
+Description: Retrieves existing sales orders.
+Request Body: None
+Response: 200 OK with sales order data
+Get Sales and Target Summary
+Endpoint: /api/SalesOrder/getSalesAndTargetSummary
+Method: GET
+Description: Retrieves a summary of sales and targets.
+Request Body: None
+Response: 200 OK with sales and target summary
+Get All Sales Order
+Endpoint: /api/SalesOrder/getAllSalesOrder
+Method: GET
+Description: Retrieves all sales orders.
+Request Body: None
+Response: 200 OK with complete sales order list
+Get Salesperson Monthly Targets
+Endpoint: /api/SalesOrder/getSalePersonMonthlyTargets
+Method: GET
+Description: Retrieves monthly targets assigned to salespersons.
+Request Body: None
+Response: 200 OK with target data
+Save Sales Order Review
+Endpoint: /api/SalesOrder/saveSalesOrderReview
+Method: POST
+Description: Saves review data for a sales order.
+Request Body: JSON with review details
+Response: 200 OK if review saved successfully
+________________________________________
+Store
+Save Store
+Endpoint: /api/Store/saveStore
+Method: POST
+Description: Saves a new store record.
+Request Body: JSON with store details
+Response: 200 OK if store saved successfully
+Get Stores
+Endpoint: /api/Store/getStores
+Method: GET
+Description: Retrieves a list of all stores.
+Request Body: None
+Response: 200 OK with store list
+Get Store Inhouse Product
+Endpoint: /api/Store/getStoreInhouseProduct
+Method: GET
+Description: Retrieves inhouse product details from the store.
+Request Body: None
+Response: 200 OK with inhouse product data
+Save Store Inhouse Product
+Endpoint: /api/Store/saveStoreInhouseProduct
+Method: POST
+Description: Saves inhouse product data into the store.
+Request Body: JSON with product details
+Response: 200 OK if saved successfully
+Get Store Raw Material
+Endpoint: /api/Store/getStoreRawMaterial
+Method: GET
+Description: Retrieves raw material data from the store.
+Request Body: None
+Response: 200 OK with raw material details
+Save Store Raw Product
+Endpoint: /api/Store/saveStoreRawProduct
+Method: POST
+Description: Saves raw product details into the store.
+Request Body: JSON with raw product data
+Response: 200 OK if saved successfully
+Get From Store Raw Material
+Endpoint: /api/Store/getFromStoreRawMaterial
+Method: GET
+Description: Retrieves raw material withdrawn from the store.
+Request Body: None
+Response: 200 OK with withdrawal details
+Territory
+Save Territory
+Endpoint: /api/Territory/saveTerritory
+Method: POST
+Description: Saves a new territory.
+Request Body: JSON with territory details
+Response: 200 OK if territory saved successfully
+Get Territories
+Endpoint: /api/Territory/getTerritories
+Method: GET
+Description: Retrieves a list of all territories.
+Request Body: None
+Response: 200 OK with territory list
+Get Territories Parent
+Endpoint: /api/Territory/getTerritoriesParent
+Method: GET
+Description: Retrieves parent territories for hierarchical structuring.
+Request Body: None
+Response: 200 OK with parent territory data
+Get Territories by ID
+Endpoint: /api/Territory/getTerritoriesById
+Method: GET
+Description: Retrieves territory details by ID.
+Request Body: None
+Response: 200 OK with territory details
+________________________________________
+Transfer
+Save Transfer Product
+Endpoint: /api/Transfer/saveTransferProduct
+Method: POST
+Description: Saves transfer product data.
+Request Body: JSON with transfer product information
+Response: 200 OK if saved successfully
+Get Transfer Product
+Endpoint: /api/Transfer/GetTransferProduct
+Method: GET
+Description: Retrieves transfer product details.
+Request Body: None
+Response: 200 OK with transfer product data
+Get Transfer Inhouse Product
+Endpoint: /api/Transfer/getTransferIHousePrd
+Method: GET
+Description: Retrieves inhouse product transfer details.
+Request Body: None
+Response: 200 OK with inhouse transfer data
+Save Transfer Inhouse Product Request
+Endpoint: /api/Transfer/saveTransferIhProductReq
+Method: POST
+Description: Saves a new inhouse product transfer request.
+Request Body: JSON with inhouse product request details
+Response: 200 OK if request saved successfully
+Get Transfer Inhouse Product Request
+Endpoint: /api/Transfer/getTransferIhProductReq
+Method: GET
+Description: Retrieves inhouse product transfer requests.
+Request Body: None
+Response: 200 OK with inhouse transfer request data
+Approve Transfer Inhouse Product Request
+Endpoint: /api/Transfer/approveTransferIhProductReq
+Method: POST
+Description: Approves an inhouse product transfer request.
+Request Body: JSON with approval details
+Response: 200 OK if approved successfully
+Save Received Inhouse Product Quantities
+Endpoint: /api/Transfer/saveReceivedIhProductQtys
+Method: POST
+Description: Saves received quantities of inhouse transferred products.
+Request Body: JSON with quantity details
+Response: 200 OK if quantities saved successfully
+Get Transfer Raw Material Request
+Endpoint: /api/Transfer/getTransferRawmaterialRequest
+Method: GET
+Description: Retrieves raw material transfer requests.
+Request Body: None
+Response: 200 OK with raw material request data
+Get Transfer Raw Material Received Status
+Endpoint: /api/Transfer/getTransferRawmaterialReceivedStatus
+Method: GET
+Description: Retrieves the received status of raw material transfers.
+Request Body: None
+Response: 200 OK with status data
+Save Transfer Raw Material Request
+Endpoint: /api/Transfer/saveTransferRawmaterialRequest
+Method: POST
+Description: Saves a new raw material transfer request.
+Request Body: JSON with raw material request details
+Response: 200 OK if saved successfully
+Update Transfer Raw Material Request Status
+Endpoint: /api/Transfer/updateTransferRawmaterialRequestStatus
+Method: POST
+Description: Updates the status of a raw material transfer request.
+Request Body: JSON with status update information
+Response: 200 OK if updated successfully
+Update Transfer Raw Material Received Status
+Endpoint: /api/Transfer/updateTransferRawmaterialReceivedStatus
+Method: POST
+Description: Updates the received status of a raw material transfer.
+Request Body: JSON with received status update
+Response: 200 OK if status updated successfully
+User
+Login
+Endpoint: /api/User/login
+Method: POST
+Description: Authenticates a user.
+Request Body: JSON with login credentials
+Response: 200 OK with user token or error message
+Get User Privilege
+Endpoint: /api/User/userPrivillage
+Method: GET
+Description: Retrieves user privileges.
+Request Body: None
+Response: 200 OK with privilege data
+Save User
+Endpoint: /api/User/saveUser
+Method: POST
+Description: Saves a new user record.
+Request Body: JSON with user details
+Response: 200 OK if saved successfully
+Get User
+Endpoint: /api/User/getUser
+Method: GET
+Description: Retrieves a list of all users.
+Request Body: None
+Response: 200 OK with user list
+Send Email OTP
+Endpoint: /api/User/SendEmailOtp
+Method: POST
+Description: Sends an OTP to the user's email.
+Request Body: JSON with email info
+Response: 200 OK if OTP sent
+Verify Email OTP
+Endpoint: /api/User/VerifyEmailOtp
+Method: POST
+Description: Verifies the email OTP entered by the user.
+Request Body: JSON with OTP details
+Response: 200 OK if OTP is valid
+Change User Password
+Endpoint: /api/User/ChangeUserPassword
+Method: POST
+Description: Changes the user's password.
+Request Body: JSON with old and new passwords
+Response: 200 OK if password updated successfully
+________________________________________
+Vendor
+Save Vendor
+Endpoint: /api/Vendor/saveVendor
+Method: POST
+Description: Saves a new vendor record.
+Request Body: JSON with vendor details
+Response: 200 OK if saved successfully
+Get Vendors
+Endpoint: /api/Vendor/GetVendors
+Method: GET
+Description: Retrieves a list of vendors.
+Request Body: None
+Response: 200 OK with vendor list
+Save Vendor Group
+Endpoint: /api/Vendor/saveVendorGroup
+Method: POST
+Description: Saves a new vendor group.
+Request Body: JSON with group details
+Response: 200 OK if saved successfully
+Get Vendor Groups
+Endpoint: /api/Vendor/vendor-groups
+Method: GET
+Description: Retrieves a list of vendor groups.
+Request Body: None
+Response: 200 OK with group data
+Get States
+Endpoint: /api/Vendor/GetStates
+Method: GET
+Description: Retrieves a list of states for vendor classification.
+Request Body: None
+Response: 200 OK with list of states
+
+VendorInvoice
+Save Vendor Invoice
+Endpoint: /api/VendorInvoice/saveVendorInvoice
+Method: POST
+Description: Saves vendor invoice data.
+Request Body: JSON with invoice details
+Response: 200 OK if saved successfully
+Get Vendor Invoice
+Endpoint: /api/VendorInvoice/getVendorInvoice
+Method: GET
+Description: Retrieves vendor invoices.
+Request Body: None
+Response: 200 OK with invoice records

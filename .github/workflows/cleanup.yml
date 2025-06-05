@@ -1,0 +1,32 @@
+name: Cleanup Files
+
+on:
+  workflow_call:
+    inputs:
+      customer_name:
+        required: true
+        type: string
+    secrets:
+      VPC_HOST:
+        required: true
+      VPS_USER:
+        required: true
+      VPS_PASSWORD:
+        required: true
+
+jobs:
+  cleanup:
+    name: Clean-up-files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cleanup Remote Files
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host: ${{ secrets.VPC_HOST }}
+          user: ${{ secrets.VPS_USER }}
+          pass: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          first_ssh: |
+            cd /home/ApplicationContainer
+            rm -rf ${{ inputs.customer_name }}
+            rm -rf *.tar *.sh *.txt

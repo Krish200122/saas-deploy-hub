@@ -1,0 +1,104 @@
+name: Deploy ERP SaaS
+
+on:
+  workflow_call:
+    inputs:
+      customer_name:
+        required: true
+        type: string
+      application_name:
+        required: true
+        type: string
+    secrets:
+      EMAIL_USERNAME:
+        required: true
+      EMAIL_PASSWORD:
+        required: true
+      VPC_HOST:
+        required: true
+      VPS_USER:
+        required: true
+      VPS_PASSWORD:
+        required: true
+
+jobs:
+  deploy:
+    name: 'tO: ${{ inputs.customer_name }}'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Validate application path and Build Docker image
+        run: |
+         APP_NAME="${{ inputs.application_name }}"
+         RAW_IMAGE_TAG="${{ inputs.customer_name }}"
+         APP_NAME_LOWER=$(echo "$APP_NAME" | tr '[:upper:]' '[:lower:]')
+         IMAGE_TAG=$(echo "$RAW_IMAGE_TAG" | tr -d ' ')
+          if [ ! -d "./${APP_NAME}/src" ]; then
+            echo "❌ No application like '${APP_NAME}' in your repo."
+          exit 1
+          fi
+          echo "✅ Found application path: ./${APP_NAME}/src"
+          echo "Building Docker image for $APP_NAME_LOWER with tag $IMAGE_TAG"
+          docker build -t "${APP_NAME_LOWER}:${IMAGE_TAG}" -f "./${APP_NAME}/Dockerfile" "./${APP_NAME}/src"
+          docker save "${APP_NAME_LOWER}:${IMAGE_TAG}" -o "${APP_NAME}.tar"
+         
+      - name: Copy Docker image to VPS
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host: ${{ secrets.VPC_HOST }}
+          user: ${{ secrets.VPS_USER }}
+          pass: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          first_ssh: |
+            mkdir -p /home/ApplicationContainer
+          scp: |
+            ./${{ inputs.application_name }}.tar => /home/ApplicationContainer/
+
+      - name: Upload deploy.sh to VPS
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host: ${{ secrets.VPC_HOST }}
+          user: ${{ secrets.VPS_USER }}
+          pass: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          scp: |
+            ./Scripts/deploy.sh => /home/ApplicationContainer/
+
+      - name:  Execute Deployment Script on VPS
+        id: deploy_script
+        continue-on-error: true
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host: ${{ secrets.VPC_HOST }}
+          user: ${{ secrets.VPS_USER }}
+          pass: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          first_ssh: |
+            export TERM=xterm
+            cd /home/ApplicationContainer
+            chmod +x deploy.sh
+            ./deploy.sh ${{ inputs.customer_name }} ${{ inputs.application_name }}
+
+      - name: Send Failure Email to Admin
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "❌ Deployment Failed for ${{ inputs.customer_name }}"
+          to: tarunkrish2001@gmail.com
+          from: "Deployment Bot <${{ secrets.EMAIL_USERNAME }}>"
+          body: |
+            Hi Admin,
+
+            Deployment for customer **${{ inputs.customer_name }}** and application **${{ inputs.application_name }}** has **failed**.
+
+            Please investigate the logs in the GitHub Actions console for details.
+
+            Regards,  
+            🚨 ERP Deployment System

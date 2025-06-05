@@ -1,0 +1,12 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+
+# Copy the published build output from context root (which is ./erp-api/src)
+COPY . .
+
+# Expose ports
+EXPOSE 80
+EXPOSE 443
+
+# Entry point (replace with your DLL name)
+ENTRYPOINT ["dotnet", "GENIE_ERP.dll"]
