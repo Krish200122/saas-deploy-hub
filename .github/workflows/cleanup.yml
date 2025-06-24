@@ -29,4 +29,6 @@ jobs:
           first_ssh: |
             cd /home/ApplicationContainer
             rm -rf ${{ inputs.customer_name }}
-            rm -rf *.tar *.sh *.txt
+            rm -rf *.tar *.sh *.txt 
+            rm -rf *.sql
+

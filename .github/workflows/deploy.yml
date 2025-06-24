@@ -20,32 +20,43 @@ on:
         required: true
       VPS_PASSWORD:
         required: true
+      DB_HOST:
+        required: true
+      DB_USER:
+        required: true
+      DB_PASS:
+        required: true
 
 jobs:
   deploy:
-    name: 'tO: ${{ inputs.customer_name }}'
+    name: 'App: ${{ inputs.application_name }} to: ${{ inputs.customer_name }}'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Validate application path and Build Docker image
+      - name: Build and export Docker image(s)
         run: |
-         APP_NAME="${{ inputs.application_name }}"
-         RAW_IMAGE_TAG="${{ inputs.customer_name }}"
-         APP_NAME_LOWER=$(echo "$APP_NAME" | tr '[:upper:]' '[:lower:]')
-         IMAGE_TAG=$(echo "$RAW_IMAGE_TAG" | tr -d ' ')
-          if [ ! -d "./${APP_NAME}/src" ]; then
-            echo "❌ No application like '${APP_NAME}' in your repo."
-          exit 1
+          APP_NAME="${{ inputs.application_name }}"
+          IMAGE_TAG=$(echo "${{ inputs.customer_name }}" | tr -d ' ')
+          
+          # If it's a fullapp, extract prefix and build API
+          if [[ "$APP_NAME" == *"_fullapp" ]]; then
+            PREFIX=$(echo "$APP_NAME" | cut -d'_' -f1)
+            API_APP_NAME="${PREFIX}_api"
+            echo "API_APP_NAME=$API_APP_NAME" >> $GITHUB_ENV
+            
+            echo "🔧 Building API image: $API_APP_NAME"
+            docker build -t "${API_APP_NAME}:${IMAGE_TAG}" -f "./${API_APP_NAME}/Dockerfile" "./${API_APP_NAME}/src"
+            docker save "${API_APP_NAME}:${IMAGE_TAG}" -o "${API_APP_NAME}.tar"
           fi
-          echo "✅ Found application path: ./${APP_NAME}/src"
-          echo "Building Docker image for $APP_NAME_LOWER with tag $IMAGE_TAG"
-          docker build -t "${APP_NAME_LOWER}:${IMAGE_TAG}" -f "./${APP_NAME}/Dockerfile" "./${APP_NAME}/src"
-          docker save "${APP_NAME_LOWER}:${IMAGE_TAG}" -o "${APP_NAME}.tar"
-         
-      - name: Copy Docker image to VPS
+
+          echo "🔧 Building App image: $APP_NAME"
+          docker build -t "${APP_NAME}:${IMAGE_TAG}" -f "./${APP_NAME}/Dockerfile" "./${APP_NAME}/src"
+          docker save "${APP_NAME}:${IMAGE_TAG}" -o "${APP_NAME}.tar"
+
+      - name: Upload Docker images to VPS
         uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
         with:
           host: ${{ secrets.VPC_HOST }}
@@ -57,7 +68,8 @@ jobs:
           scp: |
             ./${{ inputs.application_name }}.tar => /home/ApplicationContainer/
 
-      - name: Upload deploy.sh to VPS
+      - name: Upload API image if fullapp
+        if: contains(inputs.application_name, '_fullapp')
         uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
         with:
           host: ${{ secrets.VPC_HOST }}
@@ -65,11 +77,22 @@ jobs:
           pass: ${{ secrets.VPS_PASSWORD }}
           port: 22
           scp: |
-            ./Scripts/deploy.sh => /home/ApplicationContainer/
+            ./${{ env.API_APP_NAME }}.tar => /home/ApplicationContainer/
 
-      - name:  Execute Deployment Script on VPS
-        id: deploy_script
-        continue-on-error: true
+      - name: Upload scripts to VPS
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host: ${{ secrets.VPC_HOST }}
+          user: ${{ secrets.VPS_USER }}
+          pass: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          scp: |
+            ./Scripts/main.sh => /home/ApplicationContainer/
+            ./Scripts/Modules/* => /home/ApplicationContainer/Modules/
+
+
+      - name: Deploy FullApplication
+        if: contains(inputs.application_name, '_fullapp')
         uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
         with:
           host: ${{ secrets.VPC_HOST }}
@@ -79,10 +102,26 @@ jobs:
           first_ssh: |
             export TERM=xterm
             cd /home/ApplicationContainer
-            chmod +x deploy.sh
-            ./deploy.sh ${{ inputs.customer_name }} ${{ inputs.application_name }}
+            chmod +x main.sh
+            chmod +x Modules/*.sh
+            ./main.sh "${{ inputs.customer_name }}" "${{ env.API_APP_NAME }}" "${{ secrets.DB_HOST }}" "${{ secrets.DB_USER }}" "${{ secrets.DB_PASS }}"
+            ./main.sh "${{ inputs.customer_name }}" "${{ inputs.application_name }}" "${{ secrets.DB_HOST }}" "${{ secrets.DB_USER }}" "${{ secrets.DB_PASS }}" true
 
-      - name: Send Failure Email to Admin
+      - name: Deploy main application
+        if: ${{ !contains(inputs.application_name, '_fullapp') }}
+        uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+        with:
+          host: ${{ secrets.VPC_HOST }}
+          user: ${{ secrets.VPS_USER }}
+          pass: ${{ secrets.VPS_PASSWORD }}
+          port: 22
+          first_ssh: |
+            export TERM=xterm
+            cd /home/ApplicationContainer
+            chmod +x main.sh
+            ./main.sh "${{ inputs.customer_name }}" "${{ inputs.application_name }}" "${{ secrets.DB_HOST }}" "${{ secrets.DB_USER }}" "${{ secrets.DB_PASS }}"
+
+      - name: Send Failure Email
         if: failure()
         uses: dawidd6/action-send-mail@v3
         with:

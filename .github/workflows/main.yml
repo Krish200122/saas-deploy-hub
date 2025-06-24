@@ -11,9 +11,10 @@ on:
         description: 'Customer Email'
         required: true
       subscription_type:
-        description: 'erp-api, frontend, or full-app'
+        description: '(eg: appname_api,or appname_fullapp)'
         required: true
-        default: 'erp-api'
+        default: ''
+
      
 
 jobs:
@@ -30,7 +31,7 @@ jobs:
     with:
       customer_name: ${{ inputs.customer_name }}
       customer_email: ${{ inputs.customer_email }}
-      subscription_type: ${{ inputs.subscription_type }}
+      application_name: ${{ inputs.subscription_type }}
     secrets:
       VPC_HOST: ${{secrets.VPC_HOST }}
       VPS_USER:  ${{secrets.VPS_USER }}

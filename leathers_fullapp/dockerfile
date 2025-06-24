@@ -1,0 +1,12 @@
+FROM nginx:alpine
+
+# Remove default NGINX html content  
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy frontend (React build output) into NGINX
+COPY / /usr/share/nginx/html/
+
+# 👉 Add a default env.js (optional, empty at build time)
+RUN echo "window.REACT_APP_API_URL='';" > /usr/share/nginx/html/env.js
+
+CMD ["nginx", "-g", "daemon off;"]

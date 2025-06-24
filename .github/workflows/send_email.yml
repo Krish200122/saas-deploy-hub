@@ -5,7 +5,7 @@ on:
       customer_name:
         required: true
         type: string
-      subscription_type:
+      application_name:
         required: true
         type: string
       customer_email:
@@ -43,13 +43,32 @@ jobs:
      - name: Fetch port using direct SSH
        id: get_port
        run: |
-         PORT=$(sshpass -p '${{ secrets.VPS_PASSWORD }}' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${{ secrets.VPS_USER }}@${{ secrets.VPC_HOST }} "cat /home/ApplicationContainer/port.txt | tr -d '\r\n' | xargs")
+         PORT=$(sshpass -p '${{ secrets.VPS_PASSWORD }}' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${{ secrets.VPS_USER }}@${{ secrets.VPC_HOST }} "cat /home/ApplicationContainer/${{ inputs.application_name }}_port.txt | tr -d '\r\n' | xargs")
          echo "container_port=$PORT" >> $GITHUB_ENV
          echo "port=$PORT" >> $GITHUB_OUTPUT
          echo "Port extracted: $PORT"
-         
-     - name: Debug exported port
-       run: echo "Exported container_port is '${{ env.container_port }}'"
+
+     - name: Set Deployed Application Type
+       run: |
+         if [[ "${{ inputs.application_name }}" == "leathers_fullapp" ]]; then
+          echo "DEPLOYED_APP_TYPE=Leathers Ecommerce application" >> $GITHUB_ENV
+         elif [[ "${{ inputs.application_name }}" == "leathers_api" ]]; then
+          echo "DEPLOYED_APP_TYPE=Leathers Ecommerce API" >> $GITHUB_ENV
+         elif [[ "${{ inputs.application_name }}" == "erp_api" ]]; then
+          echo "DEPLOYED_APP_TYPE=ERP API" >> $GITHUB_ENV
+         elif [[ "${{ inputs.application_name }}" == "erp_fullapp" ]]; then
+          echo "DEPLOYED_APP_TYPE=ERP Application" >> $GITHUB_ENV
+         elif [[ "${{ inputs.application_name }}" == "school_fullapp" ]]; then
+          echo "DEPLOYED_APP_TYPE=School Application" >> $GITHUB_ENV
+         elif [[ "${{ inputs.application_name }}" == "school_api" ]]; then
+          echo "DEPLOYED_APP_TYPE=School API" >> $GITHUB_ENV
+         elif [[ "${{ inputs.application_name }}" == "college-fullapp" ]]; then
+          echo "DEPLOYED_APP_TYPE=College Application" >> $GITHUB_ENV
+         elif [[ "${{ inputs.application_name }}" == "college_api" ]]; then
+          echo "DEPLOYED_APP_TYPE=College API" >> $GITHUB_ENV
+         else
+          echo "DEPLOYED_APP_TYPE=Your application" >> $GITHUB_ENV
+         fi
      
      - name: Checkout repository
        uses: actions/checkout@v3
@@ -63,17 +82,18 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "🎉 Purchase Confirmation for Customer: ${{ inputs.customer_name }}"
           to: ${{ inputs.customer_email }}
-          from: "ERP SaaS <${{ secrets.EMAIL_USERNAME }}>"
+          from: "Tamu SaaS <${{ secrets.EMAIL_USERNAME }}>"
           body: |
              Dear ${{ inputs.customer_name }},
 
-              🎉 Congratulations! Your ERP SaaS application has been successfully deployed and is now ready for use.
+             🎉 Congratulations! Your ${{ env.DEPLOYED_APP_TYPE }} has been successfully deployed and is now ready for use.
 
               🔗 You can access your instance using the link below:
               👉 http://${{ secrets.VPC_HOST }}:${{ env.container_port }}
+
               
                If you have any questions or need assistance, feel free to reach out to our support team.
                Best regards,  
-               **ERP Deployment Team**
+               **Deployment Team**
 
-          attachments: Documentation/${{ inputs.subscription_type }}.docx
+          attachments: Documentation/${{ inputs.application_name }}.docx
